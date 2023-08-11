@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+  liquibase:
+    enabled: true
+    change-log: classpath:migrations/changelog.xml
+
+jwt:
+  token:
+    secret: testsecret123
+    expired: 3600000
