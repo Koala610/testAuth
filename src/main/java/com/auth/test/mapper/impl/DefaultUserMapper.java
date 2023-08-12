@@ -5,6 +5,7 @@ import com.auth.test.mapper.UserMapper;
 import com.auth.test.model.JwtUser;
 import com.auth.test.model.Role;
 import com.auth.test.model.User;
+import com.auth.test.model.dto.UserDto;
 import com.auth.test.model.type.Status;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
@@ -35,6 +36,27 @@ public class DefaultUserMapper implements UserMapper {
                 user.getStatus() == Status.ACTIVE
 
 
+        );
+    }
+
+    public User fromUserDto(UserDto userDto) {
+        User user = new User();
+        user.setStatus(Status.DRAFT);
+        user.setEmail(userDto.getEmail());
+        user.setUsername(userDto.getUsername());
+        user.setPassword(userDto.getPassword());
+        user.setFirstName(userDto.getFirstName());
+        user.setLastName(userDto.getLastName());
+        return user;
+    }
+
+    public UserDto toUserDto(User user) {
+        return new UserDto(
+                user.getUsername(),
+                user.getPassword(),
+                user.getEmail(),
+                user.getFirstName(),
+                user.getLastName()
         );
     }
 

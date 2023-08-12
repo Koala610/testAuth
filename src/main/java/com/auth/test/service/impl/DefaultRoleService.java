@@ -18,6 +18,6 @@ public class DefaultRoleService implements RoleService {
 
     @Override
     public Role findByName(String name) {
-        return null;
+        return roleRepository.findByName(name);
     }
 }

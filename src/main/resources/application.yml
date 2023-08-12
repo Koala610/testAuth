@@ -1,6 +1,9 @@
 spring:
+  security:
+    account-expiration: 3000000
+    credentials-expiration: 3000000
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/postgres?stringtype=unspecified
     username: postgres
     password: postgres
   liquibase:
@@ -9,5 +12,5 @@ spring:
 
 jwt:
   token:
-    secret: testsecret123
+    secret: testsecret123gedasgjj1242tjgewgjesfggjerdsfjgls;
     expired: 3600000
